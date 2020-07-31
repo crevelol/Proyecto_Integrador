@@ -1,5 +1,5 @@
-# PROYECTO INTEGRADOR 
-##  TEMA: Nacimientos Datos por Comunidades Autónomas
+# PROYECTO INTEGRADOR 5to
+##  TEMA: Nacimientos Datos por Comunidades AutÃ³nomas
 ### MATERIAS :
 - 	SISTEMAS DE INFORMACION 
 - 	GESTION DE BASE DE DATOS 
@@ -9,6 +9,6 @@
 -	GABRIEL MORALES
 -	Esteban Aulestia calvo toxico
 -	Carlos Revelo
--	Jonathan Andrés Barrionuevo Portero 
+-	Jonathan AndrÃ©s Barrionuevo Portero 
 ## version
 - V 0.0.1
