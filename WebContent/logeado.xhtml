@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+	
+	<h:head>
+		<title>BIENVENIDO</title>
+	  	<link href="./CSS/style.css" rel="stylesheet" type="text/css"></link>
+	</h:head>
+	<h:body>
+		<div class="header">
+			<div>
+				<h:link value="" outcome="login" styleClass="header_link"><img src="./IMAGES/logo_1.png" alt="logo"/></h:link>
+			</div>
+		  
+		  <div class="iconos_header">
+		  <a><strong>Bienvenido, </strong>Nombre de usuario</a>
+		  
+	  	  <h:link value="Cerrar Sesion" outcome="login" styleClass="header_link">
+	  	  <img src="./IMAGES/user.jpg" alt="logo" class="user"/>
+	  	  </h:link>
+	  	  </div>
+		</div>
+		<h1><strong>Bienvenido, </strong>Nombre de usuario</h1>
+		<div>
+		<h2>Sistema de reportes</h2>
+		<label>En este sistema podras acceder a la informacion de los nacimientos de la comunidades autonomas en España,
+			la cual se podra consultar por varios filtros para mejorar la personalizacion de tu busqueda.
+			Su busqueda la podemos presentar de forma de graficos de barras, pastel y texto.
+		</label>
+		<b>Tipo de reporte</b>
+		<h:selectOneRadio>
+			<f:selectItem itemValue="Soltero" itemLabel="Texto" />
+    		<f:selectItem itemValue="Casado" itemLabel="Barras"/>
+    		<f:selectItem itemValue="Viudo" itemLabel="Pastel" />
+		</h:selectOneRadio>
+		<b>Filtros</b>
+		<label>Comunidades</label>
+		<h:selectOneMenu>
+			<f:selectItem itemValue="Todos" itemLabel="Todos" />
+		</h:selectOneMenu>
+		<label>Edad Padre</label>
+		<h:selectOneMenu>
+			<f:selectItem itemValue="Todos" itemLabel="Todos" />
+		</h:selectOneMenu>
+		<label>Edad Madre</label>
+		<h:selectOneMenu>
+			<f:selectItem itemValue="Todos" itemLabel="Todos" />
+		</h:selectOneMenu>
+		<h:commandButton action="#{persona.registrar}" value="CONSULTAR" styleClass="botones"/>
+		<h:commandButton action="#{persona.registrar}" value="VER AQUI" styleClass="botones"/>
+		<h:commandButton action="#{persona.registrar}" value="DESCARGAR" styleClass="botones"/>
+		</div>
+	</h:body>
+	
+</html>

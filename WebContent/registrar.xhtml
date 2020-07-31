@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+	<h:head>
+	  	<title>BASE DE DATOS NACIMIENTOS EN COMUNIDADES AUTÓNOMAS</title>
+	  	<link href="./CSS/style.css" rel="stylesheet" type="text/css"></link>
+	  </h:head>
+	  <h:body>
+		<div class="header">
+		
+		  <div>
+		  <h:link value="" outcome="login" styleClass="header_link"><img src="./IMAGES/logo_1.png" alt="logo"/></h:link>
+		  </div>
+		  
+		  <div class="iconos_header">
+		  <h:link value="Inicio" outcome="index" styleClass="header_link"/>
+		  <h:link value="Informes" outcome="informes" styleClass="header_link"/>
+		  <h:link value="Preguntas Frecuentes" outcome="preguntas" styleClass="header_link"/>
+	  	  <h:link value="Sobre Nosotros" outcome="about" styleClass="header_link"/>
+	  	  <h:link value="¿Tienes una cuenta con nosotros?" outcome="registrar" styleClass="header_link"/>
+	  	  <h:link value="Iniciar Sesion" outcome="login" styleClass="header_link">
+	  	  <img src="./IMAGES/user.jpg" alt="logo" class="user"/>
+	  	  </h:link>
+	  	  </div>
+		</div>
+		
+		<div class="login">
+		<h:form>
+		  	<h:panelGrid columns="2">
+    		<label>Nombre :</label>
+    		<h:inputText value="#{beanPersona.personaRegistro.nombre}" id="nombre" requiredMessage="El campo es obligatorio">
+    			<f:validateRequired />
+    		</h:inputText>
+    		<h:column/>
+    		<h:message for="nombre" style="color:red; font-family:Arial" />
+    		    		
+    		<label>Edad :</label>
+    		<h:inputText value="#{beanPersona.personaRegistro.edad}" required="true" id="edad" requiredMessage="El campo es obligatorio" validatorMessage="La edad no está en el rango">
+    			<f:validateLongRange minimum="18" maximum="100"  />
+    		</h:inputText>
+    		<h:column/>
+    		<h:message for="edad" style="color:red" />
+    		
+    		<label>Pais :</label>
+    		<h:selectOneMenu value="#{beanPersona.personaRegistro.pais}" styleClass="input_select">
+    			<f:selectItem itemValue="España" itemLabel="España"/>
+    			<f:selectItem itemValue="Ecuador" itemLabel="Ecuador"/>
+    			<f:selectItem itemValue="Colombia" itemLabel="Colombia"/>
+    			<f:selectItem itemValue="Peru" itemLabel="Peru"/>
+    			<f:selectItem itemValue="Estados Unidos" itemLabel="Estados Unidos"/>
+    		</h:selectOneMenu> 
+    		
+    		<label>Correo electrónico :</label>
+    		<h:inputText value="#{beanPersona.personaRegistro.correo}" required="true" id="correo">
+    		<f:validateRegex pattern=".+[@].+[.].+" />
+    		</h:inputText>
+    		<h:column/>
+      		<h:message for="correo" style="color:red" />
+    		
+    		<label>Telefono :</label>
+    		<h:inputText value="#{beanPersona.personaRegistro.telefono}" id="telefono" required="true">
+    		<f:validateLength minimum="10" maximum="10"/>
+    		</h:inputText>
+    		<h:column/>
+    		<h:message for="telefono" style="color:red" />
+    		
+    		<label>Cedula :</label>
+    		<h:inputText value="#{beanPersona.personaRegistro.cedula}" id="cedula" required="true">
+    		<f:validateLength minimum="10" maximum="10"/>
+    		</h:inputText>
+    		<h:column/>
+    		<h:message for="telefono" style="color:red" />
+    		
+    		
+    		<label>Estado Civil :</label>
+    		<h:selectOneMenu value="#{beanPersona.personaRegistro.ECivil}" styleClass="input_select">
+    			<f:selectItem itemValue="Soltero" itemLabel="Soltero" />
+    			<f:selectItem itemValue="Casado" itemLabel="Casado"/>
+    			<f:selectItem itemValue="Viudo" itemLabel="Viudo" />
+    		</h:selectOneMenu> 
+    		
+    		<h:commandButton action="#{beanPersona.crearUsuario()}" value="REGISTRAR" styleClass="botones"/>
+		   	<input type="reset" value="CANCELAR" class="botones"/>
+		   	
+		</h:panelGrid>
+		</h:form>
+		</div>
+	  </h:body>
+</html>
