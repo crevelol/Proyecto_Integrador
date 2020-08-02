@@ -3,6 +3,7 @@ package VIEW;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Vector;
 
 import javax.enterprise.context.RequestScoped;
 import javax.faces.bean.ManagedBean;
@@ -22,6 +23,7 @@ public class beanPersona implements Serializable{
 	private boolean mBotonGuardar = true;
 	private boolean mBotonActualizar = false;
 	private boolean mBotonVolver = false;
+	private boolean session = false;
 	private String login, user;
 	
 	public List getLista() {
@@ -125,12 +127,20 @@ public class beanPersona implements Serializable{
 	
 	public String loginVerificar() {
 		System.err.println("El bean");
-		login = person.verificarLogin(personaRegistro);
+		Vector vec;
+		vec = person.verificarLogin(personaRegistro);
+		
+		personaRegistro.setNombre(vec.elementAt(0).toString());
+		personaRegistro.setPais(vec.elementAt(1).toString());
+		personaRegistro.setTipo(Integer.parseInt(vec.elementAt(2).toString()));
+		
 		String res;
-		if (login != "") {
+		if (vec != null) {
 			res = "logeado";
-		}else {
+			session = true;
+		}else{
 			res = "index";
+			session = false;
 		}
 		return res;
 		//mu.agregarMensaje(res);
@@ -154,10 +164,13 @@ public class beanPersona implements Serializable{
 		}
 		return res;
 	}
-	
-	
-	
-	
-	
 
+	public boolean isSession() {
+		return session;
+	}
+
+	public void setSession(boolean session) {
+		this.session = session;
+	}
+	
 }

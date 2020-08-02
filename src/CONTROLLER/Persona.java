@@ -6,7 +6,9 @@ import javax.persistence.*;
 @Entity
 @NamedQueries({
 @NamedQuery(name="Persona.findAll", query="SELECT p FROM Persona p"),
-@NamedQuery(name="Persona.findLogin", query="SELECT p.nombre FROM Persona p WHERE p.correo= :email")
+@NamedQuery(name="Persona.findNombre", query="SELECT p.nombre FROM Persona p WHERE p.correo= :email AND p.contraseña= :contra"),
+@NamedQuery(name="Persona.findPais", query="SELECT p.pais FROM Persona p WHERE p.correo= :email AND p.contraseña= :contra"),
+@NamedQuery(name="Persona.findTipo", query="SELECT p.tipo FROM Persona p WHERE p.correo= :email AND p.contraseña= :contra")
 })
 public class Persona implements Serializable {
 	private static final long serialVersionUID = 1L;

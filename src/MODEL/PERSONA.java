@@ -1,6 +1,7 @@
 package MODEL;
 
 import java.util.List;
+import java.util.Vector;
 
 import javax.jms.Session;
 import javax.persistence.EntityManager;
@@ -14,7 +15,9 @@ import CONTROLLER.entityManager;
 import java.util.ArrayList;
 
 public class PERSONA {
-	private List personas = new ArrayList<>(6);
+	private List personas = new ArrayList<>();
+	private List personas2 = new ArrayList<>();
+	private List personas3 = new ArrayList<>();
 	private entityManager manager;
 	private String respuesta = "";
 	
@@ -32,22 +35,27 @@ public class PERSONA {
 		
 	}
 	
-	public String verificarLogin(Persona p){
+	public Vector verificarLogin(Persona p){
 		System.err.println("Vamos a ver que pedo");
 		manager = new entityManager();
 		EntityManager em = manager.getEm();
-		String per="";
+		String por,por2,por3;
+		Vector vec = new Vector();
 		try {
-			System.err.println("El eror esta aqui");
-			Query query = em.createNamedQuery("Persona.findLogin").setParameter("email", p.getCorreo());
-			per= query.getSingleResult().toString();
-			per="Correcto";
-			System.err.println(per);
+			personas = em.createNamedQuery("Persona.findNombre").setParameter("email", p.getCorreo()).setParameter("contra", p.getContraseña()).getResultList();
+			personas2 = em.createNamedQuery("Persona.findPais").setParameter("email", p.getCorreo()).setParameter("contra", p.getContraseña()).getResultList();
+			personas3 = em.createNamedQuery("Persona.findTipo").setParameter("email", p.getCorreo()).setParameter("contra", p.getContraseña()).getResultList();
+			por = personas.get(0).toString();
+			por2 = personas2.get(0).toString();
+			por3 = personas3.get(0).toString();
+			vec.addElement(por);
+			vec.addElement(por2);
+			vec.addElement(por3);
 		}catch (NoResultException e) {
-			//e.printStackTrace();
-			per = "";
+			e.printStackTrace();
+			vec = null;
 		}
-		return per;
+		return vec;
 	}
 	
 	public String imprimirNombre(String correo){

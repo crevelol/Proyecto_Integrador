@@ -42,9 +42,10 @@
       		<h:message for="correo" style="color:red" />
       		
       		<label>Contraseña</label>
-    		<h:inputSecret id="contrasena" required="true" styleClass="inputs" validatorMessage="La contraseña minima es de 6 letras" 
+    		<h:inputSecret id="contrasena" required="true" styleClass="inputs" 
+    		validatorMessage="La contraseña minima es de 6 letras" value="#{beanPersona.personaRegistro.contraseña}"
     		requiredMessage="El campo es obligatorio" >
-    		<f:validateLength minimum="6" maximum="6"/>
+    		<f:validateLength minimum="6" maximum="20"/>
     		</h:inputSecret>
     		<h:message for="contrasena" style="color:red" />
     		<h:panelGroup styleClass="guarda_botones">
