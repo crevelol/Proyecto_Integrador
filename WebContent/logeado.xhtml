@@ -5,10 +5,12 @@
       xmlns:h="http://java.sun.com/jsf/html">
 	
 	<h:head>
+
 		<title>BIENVENIDO</title>
 	  	<link href="./CSS/style.css" rel="stylesheet" type="text/css"></link>
 	</h:head>
 	<h:body>
+		<h:form>
 		<div class="header">
 			<div>
 				<h:link value="" outcome="login" styleClass="header_link"><img src="./IMAGES/logo_1.png" alt="logo"/></h:link>
@@ -52,6 +54,7 @@
 		<h:commandButton action="#{persona.registrar}" value="VER AQUI" styleClass="botones"/>
 		<h:commandButton action="#{persona.registrar}" value="DESCARGAR" styleClass="botones"/>
 		</div>
+		</h:form>
 	</h:body>
 	
 </html>

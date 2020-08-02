@@ -59,6 +59,13 @@
     		</h:inputText>
     		<h:column/>
       		<h:message for="correo" style="color:red" />
+      		
+      		<label>Contraseña :</label>
+    		<h:inputText value="#{beanPersona.personaRegistro.contraseña}" required="true" id="contraseña" requiredMessage="El campo es obligatorio" validatorMessage="La contraseña es minimo 8 digitos">
+    			<f:validateLength minimum="8" maximum="20"/>
+    		</h:inputText>
+    		<h:column/>
+      		<h:message for="correo" style="color:red" />
     		
     		<label>Telefono :</label>
     		<h:inputText value="#{beanPersona.personaRegistro.telefono}" id="telefono" required="true">
@@ -81,7 +88,10 @@
     			<f:selectItem itemValue="Casado" itemLabel="Casado"/>
     			<f:selectItem itemValue="Viudo" itemLabel="Viudo" />
     		</h:selectOneMenu> 
-    		
+    		<h:column/>
+    		<h:selectOneMenu value="#{beanPersona.personaRegistro.tipo}" style="display: none;">
+    			<f:selectItem itemValue="3" itemLabel="50" />
+    		</h:selectOneMenu> 
     		<h:commandButton action="#{beanPersona.crearUsuario()}" value="REGISTRAR" styleClass="botones"/>
 		   	<input type="reset" value="CANCELAR" class="botones"/>
 		   	

@@ -25,6 +25,8 @@ public class PERSONA {
 			personas = em.createNamedQuery("Persona.findAll").getResultList();
 		}catch (Exception e) {
 			e.printStackTrace();
+		}finally {
+			em.close();
 		}
 		return personas;
 		
@@ -80,15 +82,23 @@ public class PERSONA {
 		return respuesta;
 	}
 	
+	public List getPersonas() {
+		return personas;
+	}
+
+	public void setPersonas(List personas) {
+		this.personas = personas;
+	}
+
 	public String actualizaPersona(Persona person) {
 		manager = new entityManager();
 		EntityManager em = manager.getEm();
-		
 		try {
 			em.getTransaction().begin();
 			em.merge(person);
 			em.getTransaction().commit();
 			respuesta = "Persona Actualizar";
+			System.err.println(respuesta);
 		} catch (Exception e) {
 			e.printStackTrace();
 			respuesta = "Error al actualizar persona";	
@@ -96,14 +106,14 @@ public class PERSONA {
 		return respuesta;
 	}
 	
-	public String eliminarPersona(Persona person) {
+	public String eliminarPersona(Integer id) {
 		manager = new entityManager();
 		EntityManager em = manager.getEm();
-		
+		Persona pe = new Persona();
 		try {
+			pe = em.find(Persona.class, id);
 			em.getTransaction().begin();
-			Persona borrarPersona = em.merge(person);
-			em.remove(borrarPersona);
+			em.remove(pe);
 			em.getTransaction().commit();
 			respuesta = "Persona Eliminada";
 		} catch (Exception e) {

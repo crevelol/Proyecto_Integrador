@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:p="http://primefaces.org/ui">
+	<h:head>
+		
+	</h:head>
+	<h:body>
+	<f:event listener="#{beanPersona.listarPersona}" type="preRenderView"/>
+	<h:form id ="formPersona">
+			<p:growl id="growl1" life="2000"/>
+			<p:panel header="Personas">
+			<p:inputText value="#{beanPersona.personaRegistro.idPersona}" style="display: none;"/>
+				<h:panelGrid columns="2" cellspacing="10">
+					<p:outputLabel value="Nombre" />
+					<p:inputText value="#{beanPersona.personaRegistro.nombre}" />
+					<p:outputLabel value="Cedula" />
+					<p:inputText value="#{beanPersona.personaRegistro.cedula}" />
+					<p:outputLabel value="Edad" />
+					<p:inputText value="#{beanPersona.personaRegistro.edad}" />
+					<p:outputLabel value="Correo" />
+					<p:inputText value="#{beanPersona.personaRegistro.correo}" />
+					<p:outputLabel value="Contraseña" />
+					<p:inputText value="#{beanPersona.personaRegistro.contraseña}" />
+					<p:outputLabel value="Pais" />
+					<p:selectOneMenu value="#{beanPersona.personaRegistro.pais}">
+    					<f:selectItem itemValue="España" itemLabel="España"/>
+    					<f:selectItem itemValue="Ecuador" itemLabel="Ecuador"/>
+    					<f:selectItem itemValue="Colombia" itemLabel="Colombia"/>
+    					<f:selectItem itemValue="Peru" itemLabel="Peru"/>
+    					<f:selectItem itemValue="Estados Unidos" itemLabel="Estados Unidos"/>
+    				</p:selectOneMenu> 
+					<p:outputLabel value="Estado Civil" />
+					<p:selectOneMenu value="#{beanPersona.personaRegistro.ECivil}">
+    					<f:selectItem itemValue="Soltero" itemLabel="Soltero" />
+    					<f:selectItem itemValue="Casado" itemLabel="Casado"/>
+    					<f:selectItem itemValue="Viudo" itemLabel="Viudo" />
+    				</p:selectOneMenu> 
+					<p:outputLabel value="Telefono" />
+					<p:inputText value="#{beanPersona.personaRegistro.telefono}" />
+					<p:outputLabel value="Tipo" />
+					<p:selectOneMenu value="#{beanPersona.personaRegistro.tipo}">
+    					<f:selectItem itemValue="1" itemLabel="1 -- Administrador" />
+    					<f:selectItem itemValue="2" itemLabel="2 -- Usuario"/>
+    					<f:selectItem itemValue="3" itemLabel="3 -- Pendiente" />
+    				</p:selectOneMenu> 
+				</h:panelGrid>
+			</p:panel>
+			<p:commandButton action="#{beanPersona.admincrearUsuario()}" value="Guardar Usuario" update=":formPersona"
+			oncomplete="PF('dataTablePersona).cleanFilters()" rendered="#{beanPersona.mBotonGuardar ==true}"/>
+			<p:commandButton action="#{beanPersona.adminactulizarUsuario()}" value="Actualizar Usuario"
+			oncomplete="PF('dataTablePersona).cleanFilters()"/>
+			<p:commandButton action="#{beanPersona.volverPersona()}" value="Limpiar"
+			update=":formPersona" oncomplete="PF('dataTablePersona).cleanFilters()"/>
+		</h:form>
+		<br/>
+		<h:form>
+			<p:dataTable id="dataTablePersona" widgetVar="dataTablePersona" paginator="true" rows="5" var="pers" 
+			value="#{beanPersona.listarPersona()}">
+				<p:column headerText="Id Factura">
+					<h:outputLabel value="#{pers.idPersona}" />
+				</p:column>
+				<p:column headerText="Nombre">
+					<h:outputLabel value="#{pers.nombre}" />
+				</p:column>
+				<p:column headerText="Cedula">
+					<h:outputLabel value="#{pers.cedula}" />
+				</p:column>
+				<p:column headerText="Edad">
+					<h:outputLabel value="#{pers.edad}" />
+				</p:column>
+				<p:column headerText="Correo">
+					<h:outputLabel value="#{pers.correo}" />
+				</p:column>
+				<p:column headerText="Contraseña">
+					<h:outputLabel value="#{pers.contraseña}" />
+				</p:column>
+				<p:column headerText="Pais">
+					<h:outputLabel value="#{pers.pais}" />
+				</p:column>
+				<p:column headerText="Telefono">
+					<h:outputLabel value="#{pers.telefono}" />
+				</p:column>
+				<p:column headerText="Tipo">
+					<h:outputLabel value="#{pers.tipo}" />
+				</p:column>
+				<p:column headerText="Acciones">
+					<p:commandButton icon=" ui-icon-pencil" action="#{beanPersona.llenarFormulario(pers)}" update=":formPersona" />
+					<p:commandButton icon="ui-icon-closethick" action="#{beanPersona.admineliminarUsuario(pers.idPersona)}" update=":formPersona"
+					oncomplete="PF('dataTablePersona').cleanFilters()"/>
+				</p:column>
+			</p:dataTable>
+		</h:form>
+	</h:body>
+</html>
