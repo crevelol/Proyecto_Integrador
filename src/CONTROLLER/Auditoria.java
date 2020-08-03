@@ -4,10 +4,16 @@ import java.io.Serializable;
 import javax.persistence.*;
 import java.util.Date;
 
+
+/**
+ * The persistent class for the auditoria database table.
+ * 
+ */
 @Entity
 @NamedQuery(name="Auditoria.findAll", query="SELECT a FROM Auditoria a")
 public class Auditoria implements Serializable {
 	private static final long serialVersionUID = 1L;
+
 	@Id
 	@SequenceGenerator(name="AUDITORIA_IDAUDITORIA_GENERATOR", sequenceName="AUDITORIA_ID_AUDITORA_SEQ", allocationSize=1)
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="AUDITORIA_IDAUDITORIA_GENERATOR")
@@ -15,6 +21,8 @@ public class Auditoria implements Serializable {
 	private Integer idAuditoria;
 	@Column(name="activar")
 	private Integer activar;
+	@Column(name="esquema")
+	private String esquema;
 	@Temporal(TemporalType.DATE)
 	private Date fecha;
 	@Column(name="operacion")
@@ -47,6 +55,14 @@ public class Auditoria implements Serializable {
 
 	public void setActivar(Integer activar) {
 		this.activar = activar;
+	}
+
+	public String getEsquema() {
+		return this.esquema;
+	}
+
+	public void setEsquema(String esquema) {
+		this.esquema = esquema;
 	}
 
 	public Date getFecha() {

@@ -11,5 +11,10 @@
 		<managed-bean-class>VIEW.beanPersona</managed-bean-class>
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>beanAuditoria</managed-bean-name>
+		<managed-bean-class>VIEW.beanAuditoria</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
 
 </faces-config>

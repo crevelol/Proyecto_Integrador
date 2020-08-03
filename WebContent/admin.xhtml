@@ -9,6 +9,7 @@
 	</h:head>
 	<h:body>
 	<f:event listener="#{beanPersona.listarPersona}" type="preRenderView"/>
+	<f:event listener="#{beanAuditoria.listarAuditoria}" type="preRenderView"/>
 	<h:form id ="formPersona">
 			<p:growl id="growl1" life="2000"/>
 			<p:panel header="Personas">
@@ -57,9 +58,10 @@
 		</h:form>
 		<br/>
 		<h:form>
+		<p:panel header="Registro">
 			<p:dataTable id="dataTablePersona" widgetVar="dataTablePersona" paginator="true" rows="5" var="pers" 
 			value="#{beanPersona.listarPersona()}">
-				<p:column headerText="Id Factura">
+				<p:column headerText="Id Registro">
 					<h:outputLabel value="#{pers.idPersona}" />
 				</p:column>
 				<p:column headerText="Nombre">
@@ -92,6 +94,36 @@
 					oncomplete="PF('dataTablePersona').cleanFilters()"/>
 				</p:column>
 			</p:dataTable>
+		</p:panel>
+		</h:form>
+		<br/>
+		<h:form>
+			<p:panel header="Auditoria">
+			<p:dataTable id="dataTableAuditoria" widgetVar="dataTableAuditoria" paginator="true" rows="5" var="audi" 
+			value="#{beanAuditoria.listarAuditoria()}">
+				<p:column headerText="Id Auditoria">
+					<h:outputLabel value="#{audi.idAuditoria}" />
+				</p:column>
+				<p:column headerText="Tabla">
+					<h:outputLabel value="#{audi.tabla}" />
+				</p:column>
+				<p:column headerText="Operacion">
+					<h:outputLabel value="#{audi.operacion}" />
+				</p:column>
+				<p:column headerText="Valor Anterior">
+					<h:outputLabel value="#{audi.valoranterior}" />
+				</p:column>
+				<p:column headerText="Valor Nuevo">
+					<h:outputLabel value="#{audi.valornuevo}" />
+				</p:column>
+				<p:column headerText="Fecha">
+					<h:outputLabel value="#{audi.fecha}" />
+				</p:column>
+				<p:column headerText="Usuario">
+					<h:outputLabel value="#{audi.usuario}" />
+				</p:column>
+			</p:dataTable>
+		</p:panel>
 		</h:form>
 	</h:body>
 </html>
