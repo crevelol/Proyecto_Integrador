@@ -7,7 +7,7 @@
 
 #### INTEGRANTES :
 -	GABRIEL MORALES
--	Esteban Aulestia calvo toxico
+-	Esteban David Aulestia Collantes 
 -	Carlos Revelo
 -	Jonathan Andrés Barrionuevo Portero 
 ## version
