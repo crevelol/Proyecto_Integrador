@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf15959081241710" configfile="/Proyecto_Integrador_Final/WebContent/WEB-INF/faces-config.xml">
-  <nodes xsi:type="pageflow:PFPage" name="login.xhtml" x="288" y="48" id="pf15959082891261" path="/login.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="logeado.xhtml" x="540" y="36" id="pf15959082891262" path="/logeado.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="registrar.xhtml" x="280" y="156" id="pf15959832433493" path="/registrar.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="validarCuenta.xhtml" x="528" y="156" id="pf15959832433494" path="/validarCuenta.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="login.xhtml" x="360" y="204" id="pf15959082891261" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf15964369042620 pf15964369042621 pf15964400578493" path="/login.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="logeado.xhtml" x="528" y="204" id="pf15959082891262" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf15964369042620" path="/logeado.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="registrar.xhtml" x="492" y="7" id="pf15959832433493" path="/registrar.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="validarCuenta.xhtml" x="552" y="72" id="pf15959832433494" path="/validarCuenta.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="admin.xhtml" x="192" y="204" id="pf15964369042622" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf15964369042621" path="/admin.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="index.xhtml" x="259" y="60" id="pf15964400578494" inlinks="pf15964400578493" path="/index.xhtml"/>
+  <links id="pf15964369042620" target="pf15959082891262" source="pf15959082891261" outcome="Usuario"/>
+  <links id="pf15964369042621" target="pf15964369042622" source="pf15959082891261" outcome="Administrador"/>
+  <links id="pf15964400578493" target="pf15964400578494" source="pf15959082891261" outcome="index"/>
 </pageflow:Pageflow>

@@ -5,9 +5,12 @@
       xmlns:h="http://java.sun.com/jsf/html"
 	  xmlns:p="http://primefaces.org/ui">
 	<h:head>
-		
+
 	</h:head>
 	<h:body>
+
+	<h:panelGrid columns="1" id="session" style="display: none;">
+	<h:inputHidden value="#{beanPersona.session}" id="sesion"/>
 	<f:event listener="#{beanPersona.listarPersona}" type="preRenderView"/>
 	<f:event listener="#{beanAuditoria.listarAuditoria}" type="preRenderView"/>
 	<h:form id ="formPersona">
@@ -55,10 +58,10 @@
 			oncomplete="PF('dataTablePersona).cleanFilters()"/>
 			<p:commandButton action="#{beanPersona.volverPersona()}" value="Limpiar"
 			update=":formPersona" oncomplete="PF('dataTablePersona).cleanFilters()"/>
+			<h:commandButton action="#{beanPersona.cerrarSesion()}" value="Cerrar Sesion"/>
 		</h:form>
 		<br/>
 		<h:form>
-		<p:panel header="Registro">
 			<p:dataTable id="dataTablePersona" widgetVar="dataTablePersona" paginator="true" rows="5" var="pers" 
 			value="#{beanPersona.listarPersona()}">
 				<p:column headerText="Id Registro">
@@ -94,7 +97,6 @@
 					oncomplete="PF('dataTablePersona').cleanFilters()"/>
 				</p:column>
 			</p:dataTable>
-		</p:panel>
 		</h:form>
 		<br/>
 		<h:form>
@@ -125,5 +127,7 @@
 			</p:dataTable>
 		</p:panel>
 		</h:form>
+		</h:panelGrid>
+		
 	</h:body>
 </html>

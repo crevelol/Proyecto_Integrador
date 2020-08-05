@@ -100,6 +100,7 @@ public class beanPersona implements Serializable{
 
 	public void limpiarFormulario() {
 		personaRegistro = new Persona();
+		session = true;
 		mBotonGuardar = true;
 		mBotonActualizar = false;
 		mBotonVolver = false;
@@ -129,18 +130,26 @@ public class beanPersona implements Serializable{
 		System.err.println("El bean");
 		Vector vec;
 		vec = person.verificarLogin(personaRegistro);
-		
-		personaRegistro.setNombre(vec.elementAt(0).toString());
-		personaRegistro.setPais(vec.elementAt(1).toString());
-		personaRegistro.setTipo(Integer.parseInt(vec.elementAt(2).toString()));
-		
-		String res;
-		if (vec != null) {
-			res = "logeado";
-			session = true;
-		}else{
-			res = "index";
+		System.err.println(vec);
+		String res = null;
+		if (vec.toString() != "[]") {
+			personaRegistro.setNombre(vec.elementAt(0).toString());
+			personaRegistro.setPais(vec.elementAt(1).toString());
+			personaRegistro.setTipo(Integer.parseInt(vec.elementAt(2).toString()));
+			if(personaRegistro.getTipo() == 1) {
+				res= "admin";
+				session = true;
+				personaRegistro = new Persona();
+				mu.agregarMensaje("Sesion iniciada admin");
+			}else if(personaRegistro.getTipo() == 2) {
+				res = "logeado";
+				session = true;
+				mu.agregarMensaje("Sesion iniciada usuario");
+			}
+		}else {
+			res = "Incorrecto";
 			session = false;
+			mu.agregarMensaje("Error datos incorrectos");
 		}
 		return res;
 		//mu.agregarMensaje(res);
@@ -163,6 +172,10 @@ public class beanPersona implements Serializable{
 			*/
 		}
 		return res;
+	}
+	public String cerrarSesion() {
+		 session = false;
+		 return "index";
 	}
 
 	public boolean isSession() {

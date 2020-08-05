@@ -2,47 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
-	
-	<h:head>
+      xmlns:h="http://java.sun.com/jsf/html">
 
-		<title>BIENVENIDO</title>
-	  	<link href="./CSS/style.css" rel="stylesheet" type="text/css"></link>
-	  	
-	  	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous"/>
-			
-	</h:head>
-	<h:body>
-		<h:inputHidden value="#{beanPersona.session}" id="sesion"/>
-		<p:growl id="growl1" life="2000"/>
-		<div id="session" style="display: none;">
-		<h:form >
-		<div class="header">
-			<div>
-				<h:link value="" outcome="login" styleClass="header_link"><img src="./IMAGES/logo_1.png" alt="logo"/></h:link>
-			</div>
-		  
-		  <div class="iconos_header">
-		  <a><strong>Bienvenido, </strong><h:outputLabel value="#{beanPersona.personaRegistro.nombre}" /></a>
-		  
-	  	  <h:link value="Cerrar Sesion" outcome="login" styleClass="header_link">
-	  	  <img src="./IMAGES/user.jpg" alt="logo" class="user"/>
-	  	  </h:link>
-	  	  </div>
-		</div>
-		
-		<h1><strong>Bienvenido, </strong><h:outputLabel value="#{beanPersona.personaRegistro.tipo}" /></h1>
-		<div>
-		<h2>Sistema de reportes </h2><h:outputLabel value="#{beanPersona.personaRegistro.pais}" />
-		<label>En este sistema podras acceder a la informacion de los nacimientos de la comunidades autonomas en España,
-			la cual se podra consultar por varios filtros para mejorar la personalizacion de tu busqueda.
-			Su busqueda la podemos presentar de forma de graficos de barras, pastel y texto.
-		</label>
-		</div>
-		
-		</h:form>
-		<script src="https://code.highcharts.com/highcharts.js"></script>
+	  <h:head>
+	  
+	  </h:head>
+	  <h:body>
+	  <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/data.js"></script>
     <script src="https://code.highcharts.com/modules/drilldown.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
@@ -113,8 +79,6 @@
 	  </script>
     
     <div id="container"></div>
-    </div>
-		<script type="text/javascript" src="JS/javascript.js"/>
-	</h:body>
-	
+    
+	  </h:body>
 </html>

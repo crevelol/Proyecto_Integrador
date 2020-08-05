@@ -41,16 +41,19 @@ public class PERSONA {
 		EntityManager em = manager.getEm();
 		String por,por2,por3;
 		Vector vec = new Vector();
+		personas=null;
 		try {
 			personas = em.createNamedQuery("Persona.findNombre").setParameter("email", p.getCorreo()).setParameter("contra", p.getContraseña()).getResultList();
 			personas2 = em.createNamedQuery("Persona.findPais").setParameter("email", p.getCorreo()).setParameter("contra", p.getContraseña()).getResultList();
 			personas3 = em.createNamedQuery("Persona.findTipo").setParameter("email", p.getCorreo()).setParameter("contra", p.getContraseña()).getResultList();
-			por = personas.get(0).toString();
-			por2 = personas2.get(0).toString();
-			por3 = personas3.get(0).toString();
-			vec.addElement(por);
-			vec.addElement(por2);
-			vec.addElement(por3);
+			if (personas.toString() != "[]") {
+				por = personas.get(0).toString();
+				por2 = personas2.get(0).toString();
+				por3 = personas3.get(0).toString();
+				vec.addElement(por);
+				vec.addElement(por2);
+				vec.addElement(por3);
+			}
 		}catch (NoResultException e) {
 			e.printStackTrace();
 			vec = null;
