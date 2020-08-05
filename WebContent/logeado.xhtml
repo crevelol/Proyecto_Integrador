@@ -15,6 +15,7 @@
 	</h:head>
 	<h:body>
 		<h:inputHidden value="#{beanPersona.session}" id="sesion"/>
+		<h:inputHidden value="#{beanPersona.personaRegistro.pais}" id="paise"/>
 		<p:growl id="growl1" life="2000"/>
 		<div id="session" style="display: none;">
 		<h:form >
@@ -25,16 +26,15 @@
 		  
 		  <div class="iconos_header">
 		  <a><strong>Bienvenido, </strong><h:outputLabel value="#{beanPersona.personaRegistro.nombre}" /></a>
+		  <div id="log"></div>
 		  
-	  	  <h:link value="Cerrar Sesion" outcome="login" styleClass="header_link">
+		  <h:link value="Cerrar Sesion" outcome="login" styleClass="header_link">
 	  	  <img src="./IMAGES/user.jpg" alt="logo" class="user"/>
 	  	  </h:link>
 	  	  </div>
 		</div>
-		
-		<h1><strong>Bienvenido, </strong><h:outputLabel value="#{beanPersona.personaRegistro.tipo}" /></h1>
 		<div>
-		<h2>Sistema de reportes </h2><h:outputLabel value="#{beanPersona.personaRegistro.pais}" />
+		<h2>Sistema de reportes </h2>
 		<label>En este sistema podras acceder a la informacion de los nacimientos de la comunidades autonomas en España,
 			la cual se podra consultar por varios filtros para mejorar la personalizacion de tu busqueda.
 			Su busqueda la podemos presentar de forma de graficos de barras, pastel y texto.
@@ -115,6 +115,7 @@
     <div id="container"></div>
     </div>
 		<script type="text/javascript" src="JS/javascript.js"/>
+		<script type="text/javascript" src="JS/paises.js"/>
 	</h:body>
 	
 </html>
