@@ -199,3 +199,35 @@
 	width: 13rem;
 	height: 13rem;
 }
+
+.footer{
+	background: rgb(143, 155, 163);
+}
+
+.footer_parte{
+	padding: 1rem;
+	margin: 0rem 2rem;
+	display: flex;
+	text-align: center;
+}
+
+.texto_footer{
+	width: 130rem;
+}
+
+.texto_footer b{
+	color: white;
+}
+
+.footer_2{
+	padding: 1rem;
+	background: #696C6E;
+	color: #C7C7C7;
+	margin: 0rem 2rem;
+}
+
+.footer_2 a{
+	text-decoration: none;
+	color: white;
+	font-weight: bold;
+}
