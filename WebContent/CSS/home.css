@@ -1,0 +1,88 @@
+@charset "ISO-8859-1";
+/* Características generales de esta sección*/
+*{
+  font-family: "Cairo", sans-serif;
+  font-weight: 500;
+  color: #293c41;
+  
+ 
+}
+
+
+/*Div-Principal  container_intro*/
+
+.container_intro{
+	padding-top: 20px; /*Distancia parte superior*/
+	padding-bottom: 50px;/*Distancia desde el fondo*/
+	margin-left: 120px; /*Margen izquierdo*/
+	justify-content:space-between;
+	display: flex;
+	max-width: 2000px; /* Tamaño máximo de la pantalla de trabajo*/
+}
+
+
+/*Columna 1*/
+.col-1{
+	background-color: #d3d1d1;
+	padding-left: 10px;
+	max-width: 600px;  /* Tamaño máximo de los 1500px disponibles*/ 
+	display: block;
+	margin-right: 1px;
+   
+}
+
+/*Columna 1*/
+.col-2{
+	margin-right: 125px;
+	max-width: 1000px;  
+	display: block;
+  	padding-left: 40px;
+	 
+}
+
+
+
+.row-1 {
+	margin-top: 40px;
+	margin-right: 140px;
+	max-width: 900px; 
+	display: block;
+}
+
+.row-2 {
+	margin-top: 65px;
+	margin-right: 140px;
+	max-width: 900px; 
+	display: block;
+}
+
+
+.row-4 {
+	margin-top: 40px; 
+	margin-left: 350px;
+	max-width: 1000px; 
+	display: block;
+}
+
+
+/* Crea 3 Columnas Iguales una junto a la otra */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+  height: 300px; 
+}
+
+/* Borrar los restantes */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+div.sticky {
+
+  
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
