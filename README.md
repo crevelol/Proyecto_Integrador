@@ -9,14 +9,13 @@
 - 	GESTION DE BASE DE DATOS 
 - 	SOFTWARE LIBRE
 
-[![N|Solid](https://media.discordapp.net/attachments/709929879101112414/740592781592100895/unknown.png)]()
+[![N|Solid](https://media.discordapp.net/attachments/709929879101112414/740592781592100895/unknown.png)]( https://www.typescriptlang.org/)
 
-[![N|Solid](https://media.discordapp.net/attachments/709929879101112414/740592853792849970/unknown.png)]()
+[![N|Solid](https://media.discordapp.net/attachments/709929879101112414/740592853792849970/unknown.png)](https://www.highcharts.com/)
 
-[![N|Solid](https://media.discordapp.net/attachments/709929879101112414/740592919945281646/unknown.png)]()
+[![N|Solid](https://media.discordapp.net/attachments/709929879101112414/740592919945281646/unknown.png)](https://www.heroku.com/)
 
-
-[![N|Solid](https://media.discordapp.net/attachments/709929879101112414/740593064384659626/unknown.png)]()
+[![N|Solid](https://media.discordapp.net/attachments/709929879101112414/740593064384659626/unknown.png)](https://nodejs.org/es/)
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
@@ -56,7 +55,7 @@ Y por supuesto España Reporta en si es Open Source con un repositorio público 
 
 Licencia
 ----
-[![N|Solid](https://aprendizajecooperativointef.files.wordpress.com/2019/07/cc-by-nc-sa-4.0.jpg)]()
+[![N|Solid](https://aprendizajecooperativointef.files.wordpress.com/2019/07/cc-by-nc-sa-4.0.jpg)](https://creativecommons.org/licenses/by-nc-sa/3.0/ec/)
 
 
 
