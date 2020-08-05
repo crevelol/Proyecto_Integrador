@@ -145,6 +145,10 @@ public class beanPersona implements Serializable{
 				res = "logeado";
 				session = true;
 				mu.agregarMensaje("Sesion iniciada usuario");
+			}else if(personaRegistro.getTipo() == 3) {
+				res = "Inconrrecto";
+				session = false;
+				mu.agregarMensaje("Esperando aprobacion del administrador");
 			}
 		}else {
 			res = "Incorrecto";
@@ -176,6 +180,11 @@ public class beanPersona implements Serializable{
 	public String cerrarSesion() {
 		 session = false;
 		 return "index";
+	}
+	
+	public String mostrarInformes() {
+		 session = true;
+		 return "rep_usuario";
 	}
 
 	public boolean isSession() {

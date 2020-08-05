@@ -1,121 +1,239 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
-	
-	<h:head>
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
 
-		<title>BIENVENIDO</title>
-	  	<link href="./CSS/style.css" rel="stylesheet" type="text/css"></link>
-	  	
-	  	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous"/>
-			
-	</h:head>
-	<h:body>
-		<h:inputHidden value="#{beanPersona.session}" id="sesion"/>
-		<h:inputHidden value="#{beanPersona.personaRegistro.pais}" id="paise"/>
-		<p:growl id="growl1" life="2000"/>
-		<div id="session" style="display: none;">
-		<h:form >
-		<div class="header">
-			<div>
-				<h:link value="" outcome="login" styleClass="header_link"><img src="./IMAGES/logo_1.png" alt="logo"/></h:link>
+<h:head>
+
+	<title>BIENVENIDO</title>
+	<link href="./CSS/style.css" rel="stylesheet" type="text/css"></link>
+	<link href="./CSS/estilo.css" rel="stylesheet" type="text/css"></link>
+	<!-- Este es importante ayuda a tener el css -->
+	<link href="./CSS/home.css" rel="stylesheet" type="text/css"></link>
+	<link href="./CSS/Footer.css" rel="stylesheet" type="text/css"></link>
+	<link href="./CSS/perfil.css" rel="stylesheet" type="text/css"></link>
+	<link href="./CSS/FAQ.css" rel="stylesheet" type="text/css"></link>
+	<link rel="stylesheet"
+		href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css"
+		integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX"
+		crossorigin="anonymous" />
+
+</h:head>
+<h:body>
+<div class="error">
+		<h1 style="color: red;">ERROR 404, Upss! creo que no has iniciado sesion, porfavor inicia</h1>
+		<h3 style="color: red;">Gracias :)</h3>
+		<h:link value="REGRESAR" outcome="index" styleClass="header_link"/>
+	</div>
+	<h:inputHidden value="#{beanPersona.session}" id="sesion" />
+	<h:inputHidden value="#{beanPersona.personaRegistro.pais}" id="paise" />
+	<p:growl id="growl1" life="2000" />
+	<div id="session" style="display: none;">
+		<h:form>
+			<div class="header">
+				<div>
+					<h:link value="" outcome="login" styleClass="header_link">
+						<img src="./IMAGES/logo_1.png" alt="logo" />
+					</h:link>
+				</div>
+
+				<div class="iconos_header">
+					<a><strong>Bienvenido, </strong> <h:outputLabel
+							value="#{beanPersona.personaRegistro.nombre}" /></a>
+					<div id="log"></div>
+
+					<h:link value="Cerrar Sesion" outcome="login"
+						styleClass="header_link">
+						<img src="./IMAGES/user.jpg" alt="logo" class="user" />
+					</h:link>
+				</div>
 			</div>
-		  
-		  <div class="iconos_header">
-		  <a><strong>Bienvenido, </strong><h:outputLabel value="#{beanPersona.personaRegistro.nombre}" /></a>
-		  <div id="log"></div>
-		  
-		  <h:link value="Cerrar Sesion" outcome="login" styleClass="header_link">
-	  	  <img src="./IMAGES/user.jpg" alt="logo" class="user"/>
-	  	  </h:link>
-	  	  </div>
-		</div>
-		<div>
-		<h2>Sistema de reportes </h2>
-		<label>En este sistema podras acceder a la informacion de los nacimientos de la comunidades autonomas en España,
-			la cual se podra consultar por varios filtros para mejorar la personalizacion de tu busqueda.
-			Su busqueda la podemos presentar de forma de graficos de barras, pastel y texto.
-		</label>
-		</div>
-		
+			<div class="container">
+				<h2>Sistema de reportes</h2>
+				<label>En este sistema podras acceder a la informacion de
+					los nacimientos de la comunidades autonomas en España, la cual se
+					podra consultar por varios filtros para mejorar la personalizacion
+					de tu busqueda. Su busqueda la podemos presentar de forma de
+					graficos de barras, pastel y texto. </label>
+			</div>
+
 		</h:form>
 		<script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/data.js"></script>
-    <script src="https://code.highcharts.com/modules/drilldown.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/modules/export-data.js"></script>
-    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
-    
-    <div class="container">
-    
-          <div class="form-row">
-            <div class="col-md-3 mb-3">
-              <label for="validationTooltip04">Comunitys</label>
-              <select class="custom-select" id="comunitys">
-                <option value="1">ANDALUCÍA</option>
-                <option value="2">ARAGÓN</option>
-                <option value="3">ASTURIAS, PRINCIPADO DE</option>
-                <option value="4">BALEARS, ILLES</option>
-                <option value="5">CANARIAS</option>
-                <option value="6">CANTABRIA</option>
-                <option value="7">CASTILLA-LA MANCHA</option>
-                <option value="8">CASTILLA Y LEÓN</option>
-                <option value="9">CATALUÑA</option>
-                <option value="10">CEUTA</option>
-                <option value="11">COMUNITAT VALENCIANA</option>
-                <option value="12">EXTRANJERO</option>
-                <option value="13">EXTREMADURA</option>
-                <option value="14">GALICIA</option>
-                <option value="15">MADRID, COMUNIDAD DE</option>
-                <option value="16">MELILLA</option>
-                <option value="17">MURCIA , REGIÓN DE</option>
-                <option value="18">NAVARRA, COMUNIDAD FORAL DE</option>
-                <option value="19">PAÍS VASCO</option>
-                <option value="20">RIOJA, LA</option>
-              </select>
-              <div class="invalid-tooltip">
-                Please select a valid state.
-              </div>
-            </div>
-            <div class="col-md-3 mb-3">
-              <label for="validationTooltip04">State</label>
-              <select class="custom-select" id="genere" required="true">
-                <option value="father">Father</option>
-                <option value="mother">Mother</option>
-              </select>
-              <div class="invalid-tooltip">
-                Please select a valid state.
-              </div>
-            </div>
-            <div class="col-md-3 mb-3">
-              <label for="validationTooltip04">State</label>
-              <select class="custom-select" id="graph" required="true">
-                <option value="line">Line</option>
-                <option value="pie">Pie</option> </select
-              >`
-              <div class="invalid-tooltip">
-                Please select a valid state.
-              </div>
-            </div>
-          </div>
-          <button class="btn btn-primary" onclick="myfuntion()">
-            Submit form
-          </button>
-          <button class="btn btn-primary" onclick="myfuntionClear()">
-            Clear form
-          </button>
-          
-      </div>
-	  <script type="text/javascript" src="JS/index.js">
-	  </script>
-    
-    <div id="container"></div>
-    </div>
-		<script type="text/javascript" src="JS/javascript.js"/>
-		<script type="text/javascript" src="JS/paises.js"/>
-	</h:body>
+		<script src="https://code.highcharts.com/modules/data.js"></script>
+		<script src="https://code.highcharts.com/modules/drilldown.js"></script>
+		<script src="https://code.highcharts.com/modules/exporting.js"></script>
+		<script src="https://code.highcharts.com/modules/export-data.js"></script>
+		<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+		<div class="container">
+
+			<div class="form-row">
+				<div class="col-md-3 mb-3">
+					<label for="validationTooltip04">Comunitys</label> <select
+						class="custom-select" id="comunitys">
+						<option value="1">ANDALUCÍA</option>
+						<option value="2">ARAGÓN</option>
+						<option value="3">ASTURIAS, PRINCIPADO DE</option>
+						<option value="4">BALEARS, ILLES</option>
+						<option value="5">CANARIAS</option>
+						<option value="6">CANTABRIA</option>
+						<option value="7">CASTILLA-LA MANCHA</option>
+						<option value="8">CASTILLA Y LEÓN</option>
+						<option value="9">CATALUÑA</option>
+						<option value="10">CEUTA</option>
+						<option value="11">COMUNITAT VALENCIANA</option>
+						<option value="12">EXTRANJERO</option>
+						<option value="13">EXTREMADURA</option>
+						<option value="14">GALICIA</option>
+						<option value="15">MADRID, COMUNIDAD DE</option>
+						<option value="16">MELILLA</option>
+						<option value="17">MURCIA , REGIÓN DE</option>
+						<option value="18">NAVARRA, COMUNIDAD FORAL DE</option>
+						<option value="19">PAÍS VASCO</option>
+						<option value="20">RIOJA, LA</option>
+					</select>
+					<div class="invalid-tooltip">Please select a valid state.</div>
+				</div>
+				<div class="col-md-3 mb-3">
+					<label for="validationTooltip04">State</label> <select
+						class="custom-select" id="genere" required="true">
+						<option value="father">Father</option>
+						<option value="mother">Mother</option>
+					</select>
+					<div class="invalid-tooltip">Please select a valid state.</div>
+				</div>
+				<div class="col-md-3 mb-3">
+					<label for="validationTooltip04">State</label> <select
+						class="custom-select" id="graph" required="true">
+						<option value="line">Line</option>
+						<option value="pie">Pie</option>
+					</select>`
+					<div class="invalid-tooltip">Please select a valid state.</div>
+				</div>
+			</div>
+			<button class="btn btn-primary" onclick="myfuntion()">
+				Graficar</button>
+			<button class="btn btn-primary" onclick="myfuntionClear()">
+				Limpiar</button>
+			
+		</div>
+		
+
+		<div id="container"></div>
+		
+		<div class="content">
+			<h1>TIPOS DE INFORMES DISPONIBLES EN ESPAÑA REPORTA - USUARIOS</h1>
+
+			<!-- __________________________ SECTIONS ___________________________ -->
+
+			<h3 class="title">INFORMES</h3>
+
+			<div>
+				<input type="checkbox" id="question1" name="q" class="questions" />
+				<div class="plus">+</div>
+				<label for="question1" class="question"> POBLACIÓN MENOR </label>
+				<div class="answers">
+					<div class="row-2">
+						<h1 style="text-align: center;">"Reporte Demostrativo de
+							Análisis de Datos"</h1>
+						<iframe src="./PDF/Ciudades con menor población de 5mil.pdf"
+							width="1000px" height="800px" scrolling="no"></iframe>
+					</div>
+				</div>
+			</div>
+			<!-- _____________________________________________________ -->
+			<div>
+				<input type="checkbox" id="question2" name="q" class="questions" />
+				<div class="plus">+</div>
+				<label for="question2" class="question"> CIUDADES MENORES A
+					CINCO MIL HABITANTES </label>
+				<div class="answers">
+					<div class="row-2">
+						<h1 style="text-align: center;">"Reporte Demostrativo de
+							Análisis de Datos"</h1>
+						<iframe src="./PDF/ciudades menores a 5mil.pdf" width="1000px"
+							height="800px" scrolling="no"></iframe>
+					</div>
+
+				</div>
+			</div>
+			<!-- _____________________________________________________ -->
+			<div>
+				<input type="checkbox" id="question3" name="q" class="questions" />
+				<div class="plus">+</div>
+				<label for="question3" class="question"> CIUDADES MAYORES A
+					50 MIL HABITANTES (BARRAS) </label>
+				<div class="answers">
+					<div class="row-2">
+						<h1 style="text-align: center;">"Reporte Demostrativo de
+							Análisis de Datos"</h1>
+						<iframe src="./PDF/mayores a 50mil(BARRAS).pdf" width="1000px"
+							height="800px" scrolling="no"></iframe>
+					</div>
+				</div>
+			</div>
+			<!-- _____________________________________________________ -->
+			<div>
+				<input type="checkbox" id="question4" name="q" class="questions" />
+				<div class="plus">+</div>
+				<label for="question4" class="question"> REPORTE DE TEXTO </label>
+				<div class="answers">
+					<div class="row-2">
+						<h1 style="text-align: center;">"Reporte Demostrativo de
+							Análisis de Datos"</h1>
+						<iframe
+							src="./PDF/Reporte_Texto(detallado por cada comunidad).pdf"
+							width="1000px" height="800px" scrolling="no"></iframe>
+					</div>
+
+				</div>
+			</div>
+			<!-- _____________________________________________________ -->
+
+
+			<!-- __________________________ SECTIONS ___________________________ -->
+
+			<div>
+				<input type="checkbox" id="question11" name="q" class="questions" />
+				<div class="plus">+</div>
+				<label for="question11" class="question"> TOTAL DE MIEMBROS
+					EN CIUDADES(BARRAS) </label>
+				<div class="answers">
+					<div class="row-2">
+						<h1 style="text-align: center;">"Reporte Demostrativo de
+							Análisis de Datos"</h1>
+						<iframe src="./PDF/total de miembres en ciudades(BARRAS).pdf"
+							width="1000px" height="800px" scrolling="no"></iframe>
+					</div>
+
+				</div>
+			</div>
+			<!-- _____________________________________________________ -->
+			<div>
+				<input type="checkbox" id="question12" name="q" class="questions" />
+				<div class="plus">+</div>
+				<label for="question12" class="question"> TOTAL DE MIEMBROS
+					EN CIUDADES(PASTEL) </label>
+				<div class="answers">
+					<div class="row-2">
+						<h1 style="text-align: center;">"Reporte Demostrativo de
+							Análisis de Datos"</h1>
+						<iframe src="./PDF/total de miembres en ciudades(pastel).pdf"
+							width="1000px" height="800px" scrolling="no"></iframe>
+					</div>
+
+				</div>
+			</div>
+			<!-- _____________________________________________________ -->
+
+		</div>
+	</div>
+	<script type="text/javascript" src="JS/index.js"/>
+	<script type="text/javascript" src="JS/javascript.js" />
+	<script type="text/javascript" src="JS/paises.js" />
 	
+</h:body>
+
 </html>

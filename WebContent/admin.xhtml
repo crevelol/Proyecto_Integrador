@@ -8,7 +8,11 @@
 
 	</h:head>
 	<h:body>
-
+	<div class="error">
+		<h1 style="color: red;">ERROR 404, Upss! creo que no has iniciado sesion, porfavor inicia</h1>
+		<h3 style="color: red;">Gracias :)</h3>
+		<h:link value="REGRESAR" outcome="index" styleClass="header_link"/>
+	</div>
 	<h:panelGrid columns="1" id="session" style="display: none;">
 	<h:inputHidden value="#{beanPersona.session}" id="sesion"/>
 	<f:event listener="#{beanPersona.listarPersona}" type="preRenderView"/>
@@ -58,7 +62,7 @@
 			oncomplete="PF('dataTablePersona).cleanFilters()"/>
 			<p:commandButton action="#{beanPersona.volverPersona()}" value="Limpiar"
 			update=":formPersona" oncomplete="PF('dataTablePersona).cleanFilters()"/>
-			<h:commandButton action="#{beanPersona.cerrarSesion()}" value="Cerrar Sesion"/>
+			<p:commandButton action="#{beanPersona.cerrarSesion()}" value="Cerrar Sesion"/>
 		</h:form>
 		<br/>
 		<h:form>

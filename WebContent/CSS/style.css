@@ -123,8 +123,7 @@
 	padding: 1.5rem;
 }
 
-/********************************/
-/*******   fotter  ********/
+
 
 
 /********************************/
@@ -137,6 +136,7 @@
 	background: #5555ff;
 	text-align: center;
 	padding: 2rem;
+	border-radius: 1rem;
 }
 
 .login label{
@@ -200,6 +200,9 @@
 	height: 13rem;
 }
 
+/********************************/
+/*******   fotter  ********/
+
 .footer{
 	background: rgb(143, 155, 163);
 }
@@ -230,4 +233,14 @@
 	text-decoration: none;
 	color: white;
 	font-weight: bold;
+}
+
+.center{
+	text-align: center;
+	padding: 2rem;
+}
+
+.sotfware{
+	display: flex;
+	padding: 2rem;
 }
